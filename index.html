@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./resources/cs">
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
     <title>GeoNames</title>
 </head>
@@ -26,16 +25,19 @@
 
 
         <tr>
-            <td>1. Names</td>
-            <td>description</td>
-            <td><button id="btnsub" type="button">Submit</button>
+            <td>Country Neighbours</td>
+            <td>API Provide a list of neighbouring countries. Country can be selected from dropdown</td>
+            <td>
                 <select id="selCountry">
                     <option value="GB">Great Britain</option>
                     <option value="FR">France</option>
                     <option value="DE">Germany</option>
                     <option value="US">USA</option>
-                </select></td>
-        </tr>
+                </select>
+                <button id="btn1" type="button">Submit</button>
+            </td>
+        
+            </tr>
 
         <tr>
             <td>2. Names</td>
@@ -51,10 +53,14 @@
 
         <tr>
             <td colspan="3">RESULT</td>
+            <td id="resulttxt" colspan="3">RESULT</td>
         </tr>
 
     </tbody>
     </table>
+
+    <script type="application/javascript" src="resources/js/jquery-3.6.4.min.js"></script>
+    <script type="application/javascript" src="resources/js/geoname.js"></script>
     
 </body>
 </html>
