@@ -11,14 +11,28 @@ $('#btn1').on("click", function() {
 
             console.log(result);
             var items = [];
+           // var item = [];
             if (result.status.name == "ok") {   
-                $.each(result.data,function(index,element){
-                    items.push(element['toponymName']);
+                $.each(result.data,function(index,element) {
+                    items.push(element['toponymName'] + " " + element['lat']);
+                
+                    //item.push(element['lat']);
+                    
+                    
                 })
+
+                if (result.status.lat == "ok") {   
+                    $.each(result.data,function(index,element){
+                        items.push(element['lat']);})
+
 
                 $('#resulttxt').html(items.join());
 
+                //$('#resulttxt').html(item.join());
+                    }
             }
+
+            
         
         },
         error: function(jqXHR, textStatus, errorThrown) {

@@ -5,7 +5,7 @@
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL);
 
-	$url='http://api.geonames.org/neighboursJSON?' . 'country=' . $_REQUEST['country'] . '&username=flightltd';
+	$url='http://api.geonames.org/neighboursJSON?' . 'country='  . $_REQUEST['country'] . '&username=flightltd';
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -20,6 +20,7 @@
 
 	$output['status']['code'] = "200";
 	$output['status']['name'] = "ok";
+	$output['status']['lat'] = "ok";
 	$output['status']['description'] = "success";
 	$output['data'] = $decode['geonames'];
 	
