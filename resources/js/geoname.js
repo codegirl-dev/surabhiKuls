@@ -1,4 +1,4 @@
-$('#btn1').on("click", function() {
+$('#btn1').on("click", function () {
 
     $.ajax({
         url: "resources/php/geohandler.php",
@@ -7,37 +7,67 @@ $('#btn1').on("click", function() {
         data: {
             country: $('#selCountry').val()
         },
-        success: function(result) {
+        success: function (result) {
 
             console.log(result);
             var items = [];
-           // var item = [];
-            if (result.status.name == "ok") {   
-                $.each(result.data,function(index,element) {
+            // var item = [];
+            if (result.status.name == "ok") {
+                $.each(result.data, function (index, element) {
                     items.push(element['toponymName'] + " " + element['lat']);
-                
+
                     //item.push(element['lat']);
-                    
-                    
+
+
                 })
 
-                if (result.status.lat == "ok") {   
-                    $.each(result.data,function(index,element){
-                        items.push(element['lat']);})
+                if (result.status.lat == "ok") {
+                    $.each(result.data, function (index, element) {
+                        items.push(element['lat']);
+                    })
 
 
-                $('#resulttxt').html(items.join());
+                    $('#resulttxt').html(items.join());
 
-                //$('#resulttxt').html(item.join());
-                    }
+                    //$('#resulttxt').html(item.join());
+                }
             }
 
-            
-        
         },
-        error: function(jqXHR, textStatus, errorThrown) {
-                console.log("fail");
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log("fail");
         }
-    }); 
+    });
+
+}); 
+
+$('#btn2').on("click", function () {
+
+    $.ajax({
+        url: "resources/php/geonameTourApi.php",
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            countryID: $('#selCountryNm').val()
+        },
+        success: function (result) {
+
+            console.log(result);
+            var items = [];
+            // var item = [];
+            if (result.status.name == "ok") {
+                $.each(result.data, function (index, element) {
+                    items.push(element['toponymName']);
+
+                })
+                $('#resulttxt').html(items.join());
+
+            }
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log("fail");
+        }
+    });
 
 });
