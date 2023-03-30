@@ -6,7 +6,10 @@ $('#btn1').on("click", function () {
         dataType: 'json',
         data: {
             country: $('#selCountry').val()
-        },
+        }, 
+        
+        //neighbours api
+
         success: function (result) {
 
             console.log(result);
@@ -20,6 +23,8 @@ $('#btn1').on("click", function () {
 
 
                 })
+
+                //have to delete it
 
                 if (result.status.lat == "ok") {
                     $.each(result.data, function (index, element) {
@@ -41,6 +46,8 @@ $('#btn1').on("click", function () {
 
 }); 
 
+// start second API
+
 $('#btn2').on("click", function () {
 
     $.ajax({
@@ -57,11 +64,12 @@ $('#btn2').on("click", function () {
             // var item = [];
             if (result.status.name == "ok") {
                 $.each(result.data, function (index, element) {
-                    items.push(element['toponymName']);
-
-                })
+                    items.push('<a href="'+ element['toponymName'] + element['toponymName'] +'</a>');
+                    
+                }) 
+                console.log(items);
                 $('#resulttxt').html(items.join());
-
+                
             }
 
         },
