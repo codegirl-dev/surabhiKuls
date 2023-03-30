@@ -9,25 +9,37 @@
 </head>
 <body>
 
-    <h1 class='text-center'>GEONAMES</h1>
+    <div>
+        
+         <h1 class='text-center'>GEONAMES</h1>
 
-    <table class="table table-bordered border-primary">
+
+         <!--create table-->
+
+    <table class="table table-bordered border-primary" >
 
 
      
     <thead>
+
+        <!--heading of the table-->
+
         <tr>
             <th class="table-primary text-center">API name</th>
             <th class="table-primary text-center">API description</th>
             <th class="table-primary text-center"></th>
         </tr>
     </thead>
+</div>
      
 
       
     <tbody>
 
 
+      <div>
+
+        <!--about first API-->
 
         <tr>
             <td>Country Neighbours</td>
@@ -39,12 +51,20 @@
                     <option value="DE">Germany</option>
                     <option value="US">USA</option>
                 </select>
+
+                <!--button1-->
+
                 <button id="btn1" type="button" class="btn btn-primary">Submit</button>
             </td>
         
             </tr>
+      </div>
+
+
+      <div>
 
         <tr>
+            <!--secondAPI-->
             <td>Tourism & Weather API</td>
             <td>API provide a list of key touriest citys in a country and weather details of selected City</td>
             <td>
@@ -54,26 +74,50 @@
                     <option value="8354410">Germany</option>
                     <option value="1269750">India</option>
                 </select>
+
+                <!--button2-->
+
                 <button id ="btn2" type="button" class="btn btn-primary">Submit</button>
             </td>
         </tr>
-        
+      </div>
 
+        
+      <div>
+        <!--third API-->
         <tr>
             <td>3. Names</td>
             <td>description</td>
+
+            <!--third button-->
+
+
             <td><button type="button" class="btn btn-primary">Submit</button></td>
         </tr>
-   
-        
-
-        <tr>
-            <td>RESULT:</td>
-            <td id="resulttxt" colspan="2"></td>
-        </tr>
-        
+      </div>
 
     </tbody>
+ </table>
+
+ 
+      <!--result table-->
+
+    <table class=".table-borderless">
+   
+        
+     <div>
+        <tr>
+            <th>RESULT:</th>
+            </tr>
+            <tr>
+                <td></td>
+            <td id="resulttxt"></td>
+            <a href="Battersea">Battersea</a>
+        </tr>
+        </div>
+        
+
+    
     </table>
 
     <script type="application/javascript" src="resources/js/jquery-3.6.4.min.js"></script>
