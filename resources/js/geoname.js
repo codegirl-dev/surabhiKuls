@@ -64,10 +64,10 @@ $('#btn2').on("click", function () {
             // var item = [];
             if (result.status.name == "ok") {
                 $.each(result.data, function (index, element) {
-                    items.push('<a href="'+ element['toponymName'] + element['toponymName'] +'</a>');
+                    items.push('<a href="'+ element['toponymName'] +'"> '+ element['toponymName'] +'</a>');
                     
                 }) 
-                console.log(items);
+                console.log(items.join());
                 $('#resulttxt').html(items.join());
                 
             }
