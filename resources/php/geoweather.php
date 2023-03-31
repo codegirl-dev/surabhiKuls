@@ -20,6 +20,8 @@
 
 	$output['status']['code'] = "200";
 	$output['status']['name'] = "ok";
+    $output['status']['lat'] = "ok";
+    $output['status']['lng'] = "ok";
 	$output['status']['description'] = "success";
 	$output['data'] = $decode['geonames'];
 	

@@ -11,7 +11,7 @@
 
     <div>
         
-         <h1 class='text-center'>GEONAMES</h1>
+         <h1 class='text-center'>GEONAMES API TEST</h1>
 
 
          <!--create table-->
@@ -43,7 +43,7 @@
 
         <tr>
             <td>Country Neighbours</td>
-            <td>API Provide a list of neighbouring countries. Country can be selected from dropdown</td>
+            <td>API Provide a list of neighbouring countries. Plesae select country name from dropdown</td>
             <td>
                 <select id="selCountry">
                     <option value="GB">Great Britain</option>
@@ -75,6 +75,7 @@
                     <option value="1269750">India</option>
                 </select>
 
+                
                 <!--button2-->
 
                 <button id ="btn2" type="button" class="btn btn-primary">Submit</button>
@@ -90,9 +91,27 @@
             <td>description</td>
 
             <!--third button-->
+            <td>
+                <select id="sellat">
+                    <option value="53">Ireland</option>
+                    <option value="50.75">Belgium</option>
+                    <option value="46">France</option>
+                    
+                </select>
+
+            </td>
+
+            <td>
+            <select id="sellng">
+                <option value="-8">Ireland</option>
+                <option value="4.5">Belgium</option>
+                <option value="2">France</option>
+                
+            </select>
+            </td>
 
 
-            <td><button type="button" class="btn btn-primary">Submit</button></td>
+            <td><button id="btn3" type="button" class="btn btn-primary">Submit</button></td>
         </tr>
       </div>
 
@@ -107,14 +126,15 @@
         
      <div>
         <tr>
-            <th>RESULT:</th>
+            <th id = "resulthead">RESULT:</th>
             </tr>
             <tr>
                 <td></td>
-            <td id="resulttxt"></td>
-            <a href="Battersea">Battersea</a>
+
+                <tbody id = "tresult">
+                </tbody>
         </tr>
-        </div>
+     </div>
         
 
     

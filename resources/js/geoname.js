@@ -12,31 +12,18 @@ $('#btn1').on("click", function () {
 
         success: function (result) {
 
-            console.log(result);
+           // console.log(result);
             var items = [];
-            // var item = [];
             if (result.status.name == "ok") {
+                $('#tresult').empty();
                 $.each(result.data, function (index, element) {
-                    items.push(element['toponymName'] + " " + element['lat']);
-
-                    //item.push(element['lat']);
-
-
+                    $('#tresult').append('<tr><td>'+ element['toponymName'] + '</td></tr>')
                 })
 
-                //have to delete it
+                 $('#resulthead').html("List of Neighbours");
+                 
 
-                if (result.status.lat == "ok") {
-                    $.each(result.data, function (index, element) {
-                        items.push(element['lat']);
-                    })
-
-
-                    $('#resulttxt').html(items.join());
-
-                    //$('#resulttxt').html(item.join());
-                }
-            }
+             }
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -48,32 +35,35 @@ $('#btn1').on("click", function () {
 
 // start second API
 
-$('#btn2').on("click", function () {
+$('#btn3').on("click", function () {
 
     $.ajax({
-        url: "resources/php/geonameTourApi.php",
+        url: "resources/php/geoweather.php",
         type: 'POST',
         dataType: 'json',
         data: {
-            countryID: $('#selCountryNm').val()
+            latitude: $('#sellat').val(),
+        
+            longitude: $('#sellng').val()
         },
         success: function (result) {
 
             console.log(result);
             var items = [];
             // var item = [];
-            if (result.status.name == "ok") {
+           if (result.status.lat == "ok") {
                 $.each(result.data, function (index, element) {
-                    items.push('<a href="'+ element['toponymName'] +'"> '+ element['toponymName'] +'</a>');
+                    items.push( element['lat'] + " " + element['lng']);
                     
                 }) 
                 console.log(items.join());
-                $('#resulttxt').html(items.join());
-                
+                $('#resulttxt').html(items.join()); 
+
+              
             }
 
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+         error: function (jqXHR, textStatus, errorThrown) {
             console.log("fail");
         }
     });
