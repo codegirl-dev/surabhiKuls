@@ -43,7 +43,7 @@
 
         <tr>
             <td>Country Neighbours</td>
-            <td>API Provide a list of neighbouring countries. Plesae select country name from dropdown</td>
+            <td>This API Provide a list of neighbouring countries. Plesae select country name from dropdown</td>
             <td>
                 <select id="selCountry">
                     <option value="GB">Great Britain</option>
@@ -98,20 +98,8 @@
                     <option value="46">France</option>
                     
                 </select>
-
+                <button id="btn3" type="button" class="btn btn-primary">Submit</button>
             </td>
-
-            <td>
-            <select id="sellng">
-                <option value="-8">Ireland</option>
-                <option value="4.5">Belgium</option>
-                <option value="2">France</option>
-                
-            </select>
-            </td>
-
-
-            <td><button id="btn3" type="button" class="btn btn-primary">Submit</button></td>
         </tr>
       </div>
 
@@ -122,24 +110,17 @@
       <!--result table-->
 
     <table class=".table-borderless fst-italic text-decoration-underline" >
-   
-        
-     <div>
         <tr>
             <th id = "resulthead">RESULT:</th>
-            </tr>
-            <tr>
-                <td></td>
-
-                <tbody id = "tresult">
-                </tbody>
         </tr>
-     </div>
         
-
-    
     </table>
-
+    <ol id="resultlst">
+        <li data-lat="001" > test</li>
+    </ol>
+    <textarea id=txtid disabled rows="4" cols="50">
+    
+    </textarea>
     <script type="application/javascript" src="resources/js/jquery-3.6.4.min.js"></script>
     <script type="application/javascript" src="resources/js/geoname.js"></script>
     

@@ -5,7 +5,7 @@
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL);
 
-	$url='http://api.geonames.org/findNearByWeatherJSON?'  . $_REQUEST['lat'] . $_REQUEST['lng']. '&username=flightltd';
+	$url='http://api.geonames.org/findNearByWeatherJSON?lat=' . trim($_REQUEST['latitude']) . '&lng=' . $_REQUEST['longitude'] . '&username=flightltd';
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -20,14 +20,11 @@
 
 	$output['status']['code'] = "200";
 	$output['status']['name'] = "ok";
-    $output['status']['lat'] = "ok";
-    $output['status']['lng'] = "ok";
-	$output['status']['description'] = "success";
-	$output['data'] = $decode['geonames'];
-	
+	$output['status']['description'] = "success";	
+	$output['data']=$decode['weatherObservation'];
 	header('Content-Type: application/json; charset=UTF-8');
-	//echo json_encode($url); 
-	
+	 
+//	echo json_encode($decode);
 	echo json_encode($output); 
 
 ?>
