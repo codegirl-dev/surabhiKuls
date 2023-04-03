@@ -15,7 +15,7 @@ $('#btn1').on("click", function () {
             // console.log(result);
             var items = [];
             var rowIdx = 0;
-            if (result.status.name == "ok") {
+            if (result.status.code == "OK") {
                 $('#resultlst').empty();
                 $.each(result.data, function (index, element) {
                     var str = '<li>' + element['toponymName'] + '</li>';
@@ -101,29 +101,44 @@ $('#btn2').on("click", function () {
     });
 
 });
+
+
+
 $('#btn3').on("click", function () {
 
+    
+    if($('#postid').val().length==0)
+    {
+        alert("Please Enter Postcode");
+        return;
+    }
+
     $.ajax({
-        url: "resources/php/geoweather.php",
+        url: "resources/php/geopostcode.php",
         type: 'POST',
         dataType: 'json',
         data: {
-            latitude: $('#sellat').val(),
-
-            longitude: $('#sellng').val()
+            country: $('#postcountry').val(),
+            postcode: $('#postid').val()
         },
         success: function (result) {
 
             console.log(result);
-            var items = [];
-            // var item = [];
-            if (result.status.lat == "ok") {
-                $.each(result.data, function (index, element) {
-                    items.push(element['lat'] + " " + element['lng']);
 
-                })
-                console.log(items.join());
-                $('#resulttxt').html(items.join());
+            if (result.status.name == "ok") {
+
+                if (result.data.length == 0)
+                {
+                    $('#txtid').html("Invalid PostCode");
+                    console.log("empty");
+                }
+                else
+                {
+                    var txt =result.data[0]['adminName1']+" -- > " +result.data[0]['placeName'];
+                     $('#txtid').html(txt);
+
+                }
+               
 
 
             }
@@ -133,5 +148,7 @@ $('#btn3').on("click", function () {
             console.log("fail");
         }
     });
-
 });
+
+
+

@@ -5,7 +5,7 @@
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL);
 
-	$url='api.geonames.org/postalCodeLookupJSON?' . 'country='  . $_REQUEST['country'] . $_REQUEST['postalcode'] . '&username=flightltd';
+	$url='http://api.geonames.org/postalCodeLookupJSON?' . 'country='  . $_REQUEST['country'] .'&postalcode='. $_REQUEST['postcode'] . '&username=flightltd';
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -22,7 +22,7 @@
 	$output['status']['name'] = "ok";
 	$output['status']['lat'] = "ok";
 	$output['status']['description'] = "success";
-	$output['data'] = $decode['geonames'];
+	$output['data'] = $decode['postalcodes'];
 	
 	header('Content-Type: application/json; charset=UTF-8');
 

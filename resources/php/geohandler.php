@@ -14,15 +14,20 @@
 
 	$result=curl_exec($ch);
 
+	if ($result === false)
+	{
+		$output['status']['code'] = "ERROR";
+	}
+	else
+	{
+		$output['status']['code'] = "OK";
+		$decode = json_decode($result,true);	
+
+	}
+
 	curl_close($ch);
 
-	$decode = json_decode($result,true);	
-
-	$output['status']['code'] = "200";
-	$output['status']['name'] = "ok";
-	$output['status']['lat'] = "ok";
-	$output['status']['description'] = "success";
-	$output['data'] = $decode['geonames'];
+$output['data'] = $decode['geonames'];
 	
 	header('Content-Type: application/json; charset=UTF-8');
 
