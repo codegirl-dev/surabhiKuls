@@ -6,15 +6,15 @@ $('#btn1').on("click", function () {
         dataType: 'json',
         data: {
             country: $('#selCountry').val()
-        }, 
-        
+        },
+
         //neighbours api
 
         success: function (result) {
 
-           // console.log(result);
+            // console.log(result);
             var items = [];
-            var rowIdx=0;
+            var rowIdx = 0;
             if (result.status.name == "ok") {
                 $('#resultlst').empty();
                 $.each(result.data, function (index, element) {
@@ -22,10 +22,10 @@ $('#btn1').on("click", function () {
                     $('#resultlst').append(str);
                 })
 
-                 $('#resulthead').html("List of Neighbours");
-                 
+                $('#resulthead').html("List of Neighbours");
 
-             }
+
+            }
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -35,37 +35,38 @@ $('#btn1').on("click", function () {
 
 });
 
-$("#resultlst").on('click','li',
-    function(){
+$("#resultlst").on('click', 'li',
+    function () {
 
-//alert($(this).attr('data-lat')+' '+$(this).attr('data-lng'));   
+        //alert($(this).attr('data-lat')+' '+$(this).attr('data-lng'));   
 
-$.ajax({
-    url: "resources/php/geoweather.php",
-    type: 'POST',
-    dataType: 'json',
-    data: {
-        latitude: $(this).attr('data-lat'),
-        longitude: $(this).attr('data-lng')
-    },
-    success: function (result) {
-        $('#txtid').empty();
-        console.log(result);
-        // var item = [];
-       if (result.status.name == "ok") {
-         
-        $('#txtid').html("Sky :"+result.data['clouds'] + " " + "Temperature :"+result.data['temperature'] + " " + "humidity :"+result.data['humidity'] + " " + "windSpeed :"+result.data['windSpeed'] + " " );
-        }
-    },
-     error: function (jqXHR, textStatus, errorThrown) {
-        console.log("fail");
+        $.ajax({
+            url: "resources/php/geoweather.php",
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                latitude: $(this).attr('data-lat'),
+                longitude: $(this).attr('data-lng')
+            },
+            success: function (result) {
+                $('#txtid').empty();
+                console.log(result);
+                // var item = [];
+                if (result.status.name == "ok") {
+
+                    $('#txtid').html("Sky :" + result.data['clouds'] + " " + "Temperature :" + result.data['temperature'] + " " + "humidity :" + result.data['humidity'] + " " + "windSpeed :" + result.data['windSpeed'] + " ");
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log("fail");
+            }
+        });
+
     }
-});
-
-}
 );
-    
-// start second API
+
+// < -------------------------------------------- start of  second API......................................................... >
+
 
 $('#btn2').on("click", function () {
 
@@ -74,27 +75,27 @@ $('#btn2').on("click", function () {
         type: 'POST',
         dataType: 'json',
         data: {
-            countryID : $('#selCountryNm').val()
+            countryID: $('#selCountryNm').val()
         },
         success: function (result) {
 
             console.log(result);
             var items = [];
             // var item = [];
-           if (result.status.name == "ok") {
-    
-            $('#resultlst').empty();
-            $.each(result.data, function (index, element) {
-                var str = '<li data-lat="'+element['lat'] + ' " data-lng = "'+element['lng'] +'" >' + element['toponymName'] + '</li>';
-                $('#resultlst').append(str);
-            })
+            if (result.status.name == "ok") {
 
-             $('#resulthead').html("List of Tour Places");
-              
+                $('#resultlst').empty();
+                $.each(result.data, function (index, element) {
+                    var str = '<li data-lat="' + element['lat'] + ' " data-lng = "' + element['lng'] + '" >' + element['toponymName'] + '</li>';
+                    $('#resultlst').append(str);
+                })
+
+                $('#resulthead').html("List of Tour Places");
+
             }
 
         },
-         error: function (jqXHR, textStatus, errorThrown) {
+        error: function (jqXHR, textStatus, errorThrown) {
             console.log("fail");
         }
     });
@@ -108,7 +109,7 @@ $('#btn3').on("click", function () {
         dataType: 'json',
         data: {
             latitude: $('#sellat').val(),
-        
+
             longitude: $('#sellng').val()
         },
         success: function (result) {
@@ -116,19 +117,19 @@ $('#btn3').on("click", function () {
             console.log(result);
             var items = [];
             // var item = [];
-           if (result.status.lat == "ok") {
+            if (result.status.lat == "ok") {
                 $.each(result.data, function (index, element) {
-                    items.push( element['lat'] + " " + element['lng']);
-                    
-                }) 
-                console.log(items.join());
-                $('#resulttxt').html(items.join()); 
+                    items.push(element['lat'] + " " + element['lng']);
 
-              
+                })
+                console.log(items.join());
+                $('#resulttxt').html(items.join());
+
+
             }
 
         },
-         error: function (jqXHR, textStatus, errorThrown) {
+        error: function (jqXHR, textStatus, errorThrown) {
             console.log("fail");
         }
     });
