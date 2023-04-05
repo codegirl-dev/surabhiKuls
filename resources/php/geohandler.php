@@ -5,7 +5,7 @@
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL);
 
-	$url='http://api.geonames.org/neighboursJSON?' . 'country='  . $_REQUEST['country'] . '&username=flightltd';
+	$url='http://api.geonames.org/neighboursJSON?' . 'country='  . $_REQUEST['country'] . '&username=testgeo12';
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);

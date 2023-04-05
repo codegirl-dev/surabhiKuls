@@ -5,42 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-    <title>GeoNames</title>
+    <link href="resources/css/geo.css" rel="stylesheet">
+
+    <title>GeoNames WebService Test</title>
 </head>
 <body>
-     <h1 class='text-center'>GEONAMES API TEST</h1>
 
+    <header>
+            GEONAMES API TEST
+    </header>
 
          <!--create table-->
     <section>
         <table class="table table-bordered border-primary" >
             <thead>
                 <tr>
-                    <th class="table-primary text-center">API name</th>
-                    <th class="table-primary text-center">API description</th>
-                    <th class="table-primary text-center"></th>
+                    <th class="table-primary text-center">GeoNames API</th>
+                    <th class="table-primary text-center">Description</th>
+                    <th class="table-primary text-center">User Action</th>
                 </tr>
             </thead>
             <tbody>
             <tr>
-                <td>Country Neighbours</td>
-                <td>This API Provide a list of neighbouring countries. Plesae select country name from dropdown</td>
-                <td>
+                <td class="text-center">Country Neighbours</td>
+                <td class="text-center">Web service provide list of neighbouring countries. Plesae select country name from dropdown</td>
+                <td class="text-center">
                     <select id="selCountry">
                         <option value="GB">Great Britain</option>
                         <option value="FR">France</option>
                         <option value="DE">Germany</option>
                         <option value="US">USA</option>
                     </select>
-                    <button id="btn1" type="button" class="btn btn-primary">Submit</button>
+                    <button id="btn1" type="button" class="btn btn-primary text-center">Submit</button>
                  </td>
             </tr>
       
        <tr>
             <!------------------------------------SECOND API---------------------------------------------------------->
-            <td>Tourism & Weather API</td>
-            <td>API provide a list of key touriest citys in a country and weather details of selected City</td>
-            <td>
+            <td class="text-center">Tourism & Weather API</td>
+            <td class="text-center">Web service provide list of key touriest places in a country and weather details of selected city</td>
+            <td class="text-center">
                 <select id="selCountryNm">
                     <option value="2643743">Great Britain</option>
                     <option value="2593110">Spain</option>
@@ -51,58 +55,61 @@
 
                 <!--button2-->
 
-                <button id ="btn2" type="button" class="btn btn-primary">Submit</button>
+                <button id ="btn2" type="button" class="btn btn-primary text-center">Submit</button>
             </td>
-        </tr>/
+        </tr>
         <tr>
-            <td>PostCode Validation API</td>
-            <td>Validate PostCode</td>
+            <td class="text-center">PostCode Validation API</td>
+            <td class="text-center">Web service validate postcode.</td>
 
             <!---------------------------------------------------third button---------------------------------------------------->
-            <td>
-                <form>
-                   <div class="form-group"> 
-                    <label>Country</label>
-                <select id="postcountry">
-                    <option value="GB">Great Britain</option>
+            <td class="text-center">
+                    <select id="postcountry">
+                        <option value="GB">Great Britain</option>
                         <option value="FR">France</option>
                         <option value="DE">Germany</option>
                         <option value="US">USA</option>
-                    
-                </select>
-                   </div>
-
-                <div class="form-group">
-                <label>PostalCode</label>
-                <input id="postid"  type="postcode">
-                <button id="btn3" type="button" class="btn btn-primary">Submit</button>
-                </div>
-                </form>
-                
+                    </select>
+                    <label>PostalCode</label>
+                    <input id="postid" size="5" type="text">
+                    <button id="btn3" type="button" class="btn btn-primary">Submit</button>
             </td>
         </tr>
       
 
     </tbody>
  </table>
-         </section>
+</section>
 
 
       <!------------------------------------------RESULT TABLE--------------------------------------------------------------->
 
 
 
-      <div class="d-flex">
-        <div class="p-2 flex-fill" id="resulthead">RESULT:
+    <div class="d-flex flex-row mb-2">
+        <div class="p-2 fs-4" id="resulthead">       </div>
+      
         
+    </div>
+    <div class="d-inline-flex p-2">
+        <div>
+            <ol class="list-group" id="resultlst"> 
+                
+            </ol>
         </div>
-        <div class="p-2 flex-fill" id="txtid"></div>
-        <div class="p-2 flex-fill"></div>
-      </div>
-     
-      <ol id="resultlst">
-     </ol>
-     
+        <div class="p-2 " id="txtid"></div>
+    </div> 
+    
+  <!--  <div role="tabpanel">
+        <div>
+            <ol class="list-group" id="resultlst" role= "tablist"> 
+                
+            </ol>
+        </div>
+        <div class="tab-pane" id="txtid"></div>
+
+    </div>
+-->
 
     <!--<textarea class="form-control" id=txtid disabled rows="4" cols="50"></textarea>
 -->
