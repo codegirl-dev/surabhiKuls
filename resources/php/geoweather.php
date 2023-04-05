@@ -30,9 +30,6 @@
 
 	$decode = json_decode($result,true);	
 
-	$output['status']['code'] = "200";
-	$output['status']['name'] = "ok";
-	$output['status']['description'] = "success";	
 	$output['data']=$decode['weatherObservation'];
 	header('Content-Type: application/json; charset=UTF-8');
 	 

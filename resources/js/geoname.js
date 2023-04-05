@@ -67,7 +67,7 @@ $("#resultlst").on('click', 'li',
                 $('#txtid').empty();
                 console.log(result);
                 
-                if (result.status.name == "ok") {
+                if (result.status.code == "OK") {
 
                     $('#txtid').html("Sky : " + result.data['clouds'] + " <br> " + "Temperature :" + result.data['temperature'] + " <br> " + "humidity :" + result.data['humidity'] + " <br> " + "windSpeed :" + result.data['windSpeed'] + " . ");
                 }
@@ -102,7 +102,7 @@ $('#btn2').on("click", function () {
             console.log(result);
             var items = [];
             // var item = [];
-            if (result.status.name == "ok") {
+            if (result.status.code == "OK") {
 
                 $('#resultlst').empty();
                 $.each(result.data, function (index, element) {
@@ -148,7 +148,7 @@ $('#btn3').on("click", function () {
 
             console.log(result);
 
-            if (result.status.name == "ok") {
+            if (result.status.code == "OK") {
 
                 if (result.data.length == 0)
                 {

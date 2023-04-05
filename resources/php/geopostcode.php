@@ -29,10 +29,6 @@
 	curl_close($ch);
 
 	$decode = json_decode($result,true);	
-
-	$output['status']['code'] = "200";
-	$output['status']['name'] = "ok";
-	$output['status']['lat'] = "ok";
 	$output['status']['description'] = "success";
 	$output['data'] = $decode['postalcodes'];
 	
