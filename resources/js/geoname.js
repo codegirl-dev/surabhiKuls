@@ -46,7 +46,7 @@ $("#resultlst").on('click', 'li',
 
         //alert($(this).attr('data-lat')+' '+$(this).attr('data-lng'));   
        
-        
+        // to active the list of countries..
         var listItems = $('#resultlst li');
         listItems.each(function(idx,li){
             $(li).removeClass('list-group-item active').addClass('list-group-item');
@@ -64,10 +64,10 @@ $("#resultlst").on('click', 'li',
                 longitude: $(this).attr('data-lng')
             },
             success: function (result) {
-                $('#txtid').empty();
+                $('#txtid').empty();     //remove any previous result 
                 console.log(result);
                 
-                if (result.status.code == "OK") {
+                if (result.status.code == "OK") {     // will show weather details
 
                     $('#txtid').html("Sky : " + result.data['clouds'] + " <br> " + "Temperature :" + result.data['temperature'] + " <br> " + "humidity :" + result.data['humidity'] + " <br> " + "windSpeed :" + result.data['windSpeed'] + " . ");
                 }
@@ -86,7 +86,7 @@ $("#resultlst").on('click', 'li',
 $('#btn2').on("click", function () {
 
     
-    $('#resultlst').empty();
+    $('#resultlst').empty();   //removes previous result
     $('#resulthead').empty();
     $('#txtid').empty();
 
@@ -101,7 +101,7 @@ $('#btn2').on("click", function () {
 
             console.log(result);
             var items = [];
-            // var item = [];
+            
             if (result.status.code == "OK") {
 
                 $('#resultlst').empty();
@@ -142,7 +142,7 @@ $('#btn3').on("click", function () {
         dataType: 'json',
         data: {
             country: $('#postcountry').val(),
-            postcode: $('#postid').val()
+            postcode: $('#postid').val().replace(/\s+/g,'') // To remove white space from string. 
         },
         success: function (result) {
 

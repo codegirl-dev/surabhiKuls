@@ -12,11 +12,11 @@
 <body>
 
     <header>
-            GEONAMES API TEST
+            <h2>GEONAMES API TEST</h2>
     </header>
 
-         <!--create table-->
-    <section>
+         <!-------------------------------------------------start of API table--------------------------------------->
+    
         <table class="table table-bordered border-primary" >
             <thead>
                 <tr>
@@ -25,6 +25,7 @@
                     <th class="table-primary text-center">User Action</th>
                 </tr>
             </thead>
+            <!-------------------------------------------Country Neighbours API-------------------------------------------->
             <tbody>
             <tr>
                 <td class="text-center">Country Neighbours</td>
@@ -41,7 +42,7 @@
             </tr>
       
        <tr>
-            <!------------------------------------SECOND API---------------------------------------------------------->
+            <!------------------------------------Touriest place and their weather API---------------------------------------------------------->
             <td class="text-center">Tourism & Weather API</td>
             <td class="text-center">Web service provide list of key touriest places in a country and weather details of selected city</td>
             <td class="text-center">
@@ -53,16 +54,16 @@
                     <option value="2658434">Switzerland</option>
                 </select>
 
-                <!--button2-->
+            
 
                 <button id ="btn2" type="button" class="btn btn-primary text-center">Submit</button>
             </td>
         </tr>
+        <!--------------------------------------------------------postalcode lookup API---------------------------------------->
         <tr>
             <td class="text-center">PostCode Validation API</td>
             <td class="text-center">Web service validate postcode.</td>
 
-            <!---------------------------------------------------third button---------------------------------------------------->
             <td class="text-center">
                     <select id="postcountry">
                         <option value="GB">Great Britain</option>
@@ -79,7 +80,7 @@
 
     </tbody>
  </table>
-</section>
+
 
 
       <!------------------------------------------RESULT TABLE--------------------------------------------------------------->
